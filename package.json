@@ -1,0 +1,21 @@
+{
+  "name": "layerre",
+  "version": "1.0.0",
+  "description": "Layerre is a platform for creating dynamic image variants from Canva templates with powerful API automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --testTimeout 30000"
+  },
+  "dependencies": {
+    "zapier-platform-core": "18.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.6.0",
+    "@jest/test-sequencer": "^29.6.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9"
+  }
+}
