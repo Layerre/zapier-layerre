@@ -100,7 +100,7 @@ This integration uses API Key authentication with Bearer tokens. Users will need
 
 ## License
 
-MIT License - Open source code for educational and reference purposes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Version History
 
