@@ -94,9 +94,8 @@ This integration uses API Key authentication with Bearer tokens. Users will need
 
 ## Support
 
-- **Documentation**: https://docs.layerre.com
-- **API Reference**: https://api.layerre.com/docs
-- **Support Email**: support@layerre.com
+- **API Reference**: https://layerre.com/docs
+- **Support Email**: hello@layerre.com
 - **Zapier Platform Docs**: https://zapier.github.io/zapier-platform/
 
 ## License
