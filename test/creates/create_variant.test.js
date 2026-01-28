@@ -43,15 +43,15 @@ describe('Create Variant', () => {
       console.log('Skipping: API_KEY not set in environment');
       return;
     }
-    if (!process.env.CANVA_URL) {
-      console.log('Skipping: CANVA_URL not set in environment');
+    if (!process.env.DESIGN_URL) {
+      console.log('Skipping: DESIGN_URL not set in environment');
       return;
     }
 
     // 1) Create a template to use for the variant
     const createdTemplate = await appTester(App.creates.create_template.operation.perform, {
       authData: { api_key: process.env.API_KEY },
-      inputData: { canva_url: process.env.CANVA_URL }
+      inputData: { design_url: process.env.DESIGN_URL }
     });
 
     expect(createdTemplate).toBeDefined();

@@ -1,12 +1,12 @@
 'use strict';
 
-// Create a new template from a Canva URL
+// Create a new template from a design URL
 const perform = async (z, bundle) => {
   const response = await z.request({
     method: 'POST',
     url: 'https://api.layerre.com/v1/template',
     body: {
-      canva_url: bundle.inputData.canva_url
+      canva_url: bundle.inputData.design_url
     }
   });
 
@@ -24,8 +24,8 @@ module.exports = {
   operation: {
     inputFields: [
       {
-        key: 'canva_url',
-        label: 'Canva Share URL',
+        key: 'design_url',
+        label: 'Design URL',
         type: 'string',
         required: true,
         helpText: 'The Canva share URL (make sure the design is shared with proper permissions). Example: `https://www.canva.com/design/DABCdef123/view`.'

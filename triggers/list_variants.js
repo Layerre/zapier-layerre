@@ -32,8 +32,8 @@ module.exports = {
   noun: 'Variant',
   display: {
     label: 'List Variants',
-    description: 'Triggers when a template has variants (useful for iterating over all variants for a template).',
-    hidden: false
+    description: 'Used for dropdowns to select a variant.',
+    hidden: true
   },
 
   operation: {

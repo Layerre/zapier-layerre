@@ -22,8 +22,8 @@ module.exports = {
   noun: 'Template',
   display: {
     label: 'List Templates',
-    description: 'Triggers when you have templates (useful for iterating over all your templates).',
-    hidden: false
+    description: 'Used for dropdowns to select a template.',
+    hidden: true
   },
 
   operation: {

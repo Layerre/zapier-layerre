@@ -1,7 +1,7 @@
 {
   "name": "layerre",
   "version": "1.0.0",
-  "description": "Layerre is a platform for creating dynamic image variants from Canva templates with powerful API automation",
+  "description": "Layerre is a tool for creating multiple image variants from a single design template.",
   "main": "index.js",
   "scripts": {
     "test": "jest --testTimeout 30000"

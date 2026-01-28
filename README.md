@@ -1,6 +1,6 @@
 # Layerre Zapier Integration
 
-Open source Zapier integration for [Layerre](https://layerre.com) - Create dynamic image variants from Canva templates.
+Open source Zapier integration for [Layerre](https://layerre.com). Layerre is a platform for creating image variants from design templates.
 
 ## Overview
 
@@ -9,7 +9,7 @@ This is the complete Zapier integration code for Layerre, released as an open so
 ## Features
 
 ### Actions
-- **Create Template** - Import a Canva design as a Layerre template
+- **Create Template** - Import a design as a Layerre template
 - **Delete Template** - Remove a template from your account
 - **Create Variant** - Generate a personalized variant with custom layer overrides
 - **Delete Variant** - Remove a variant
@@ -45,11 +45,8 @@ npm install
 
 3. Create a `.env` file:
 ```bash
-# Your Layerre API key
 API_KEY=your_api_key_here
-
-# Sample Canva URL for testing
-CANVA_URL=https://www.canva.com/design/...
+DESIGN_URL=https://www.canva.com/design/...
 ```
 
 4. Link your Zapier account:
@@ -82,7 +79,7 @@ zapier-platform test --include authentication.test.js
 
 You can test individual actions locally:
 ```bash
-zapier-platform invoke creates.create_template --inputData '{"canva_url": "https://www.canva.com/design/..."}'
+zapier-platform invoke creates.create_template --inputData '{"DESIGN_URL": "https://www.canva.com/design/..."}'
 ```
 
 ## Authentication

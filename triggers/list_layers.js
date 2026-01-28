@@ -44,8 +44,8 @@ module.exports = {
   noun: 'Layer',
   display: {
     label: 'List Layers',
-    description: 'Triggers when a template has layers (useful for iterating over all layers for a template).',
-    hidden: false
+    description: 'Used for dropdowns to select a layer.',
+    hidden: true
   },
 
   operation: {

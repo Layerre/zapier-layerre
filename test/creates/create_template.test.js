@@ -13,8 +13,8 @@ describe('Create Template', () => {
       console.log('Skipping: API_KEY not set in environment');
       return;
     }
-    if (!process.env.CANVA_URL) {
-      console.log('Skipping: CANVA_URL not set in environment');
+    if (!process.env.DESIGN_URL) {
+      console.log('Skipping: DESIGN_URL not set in environment');
       return;
     }
 
@@ -23,7 +23,7 @@ describe('Create Template', () => {
         api_key: process.env.API_KEY
       },
       inputData: {
-        canva_url: process.env.CANVA_URL
+        design_url: process.env.DESIGN_URL
       }
     };
 
@@ -39,7 +39,7 @@ describe('Create Template', () => {
     expect(result.height).toBeGreaterThan(0);
   });
 
-  it('should fail with invalid Canva URL', async () => {
+  it('should fail with invalid design URL', async () => {
     if (!process.env.API_KEY) {
       console.log('Skipping: API_KEY not set in environment');
       return;
@@ -50,7 +50,7 @@ describe('Create Template', () => {
         api_key: process.env.API_KEY
       },
       inputData: {
-        canva_url: 'not-a-valid-url'
+        design_url: 'not-a-valid-url'
       }
     };
 
