@@ -8,7 +8,7 @@ const appTester = zapier.createAppTester(App);
 describe('Create Template', () => {
   zapier.tools.env.inject();
 
-  it('should create a template from a Canva URL', async () => {
+  it('should create a template from a design URL', async () => {
     if (!process.env.API_KEY) {
       console.log('Skipping: API_KEY not set in environment');
       return;

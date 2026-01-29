@@ -18,7 +18,7 @@ module.exports = {
   noun: 'Template',
   display: {
     label: 'Create Template',
-    description: 'Creates a new template from a Canva share URL. The template will include all layers, dimensions, and metadata extracted from the Canva design.'
+    description: 'Creates a new template from a design share URL. The template will include all layers, dimensions, and metadata extracted from the design.'
   },
 
   operation: {
@@ -28,7 +28,7 @@ module.exports = {
         label: 'Design URL',
         type: 'string',
         required: true,
-        helpText: 'The Canva share URL (make sure the design is shared with proper permissions). Example: `https://www.canva.com/design/DABCdef123/view`.'
+        helpText: 'The design share URL (make sure the design is shared with proper permissions).'
       }
     ],
 
