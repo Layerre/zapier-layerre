@@ -59,6 +59,7 @@ const perform = async (z, bundle) => {
   const propFontSize = ensureArray(bundle.inputData.prop_font_size);
   const propFontName = ensureArray(bundle.inputData.prop_font_name);
   const propTextAlign = ensureArray(bundle.inputData.prop_text_align);
+  const propRtlEnabled = ensureArray(bundle.inputData.prop_rtl_enabled);
   const propLetterSpacing = ensureArray(bundle.inputData.prop_letter_spacing);
   const propLineSpacing = ensureArray(bundle.inputData.prop_line_spacing);
 
@@ -143,6 +144,9 @@ const perform = async (z, bundle) => {
 
       const textAlign = propTextAlign[i];
       if (textAlign !== undefined && textAlign !== null && textAlign !== '') properties.text_align = textAlign;
+
+      const rtlEnabled = propRtlEnabled[i];
+      if (rtlEnabled === true || rtlEnabled === 'true') properties.text_direction = 'rtl';
 
       const letterSpacing = parseOptionalNumber(propLetterSpacing[i]);
       if (letterSpacing !== undefined) properties.letter_spacing = letterSpacing;
@@ -268,6 +272,14 @@ module.exports = {
         list: true,
         choices: ['left', 'center', 'right', 'justify'],
         helpText: 'Line items. Optional text_align override per row.'
+      },
+      {
+        key: 'prop_rtl_enabled',
+        label: 'Overrides: Properties → RTL Enabled',
+        type: 'boolean',
+        required: false,
+        list: true,
+        helpText: 'Line items. Set to true to enable right-to-left text direction (Arabic, Hebrew, etc.) per row.'
       },
       {
         key: 'prop_letter_spacing',
