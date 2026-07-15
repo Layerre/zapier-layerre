@@ -5,6 +5,7 @@ const { befores = [], afters = [] } = require('./middleware');
 const createTemplate = require('./creates/create_template');
 const deleteTemplate = require('./creates/delete_template');
 const createVariant = require('./creates/create_variant');
+const createVariantsBulk = require('./creates/create_variants_bulk');
 const deleteVariant = require('./creates/delete_variant');
 
 // Import searches
@@ -51,6 +52,7 @@ module.exports = {
     [createTemplate.key]: createTemplate,
     [deleteTemplate.key]: deleteTemplate,
     [createVariant.key]: createVariant,
+    [createVariantsBulk.key]: createVariantsBulk,
     [deleteVariant.key]: deleteVariant
   },
 

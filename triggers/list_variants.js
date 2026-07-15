@@ -1,5 +1,7 @@
 'use strict';
 
+const { VARIANT_OUTPUT_FIELDS, VARIANT_SAMPLE, formatVariantName } = require('../lib/variant_output_fields');
+
 // Trigger: list variants for a template (used for dynamic dropdowns)
 const perform = async (z, bundle) => {
   const params = {
@@ -15,16 +17,10 @@ const perform = async (z, bundle) => {
 
   // Provide a friendly `name` for selection UIs
   const variants = Array.isArray(response.data) ? response.data : [];
-  return variants.map((v) => {
-    const id = v && v.id ? String(v.id) : '';
-    const shortId = id ? id.slice(0, 8) : 'unknown';
-    const dims =
-      v && v.width && v.height ? ` (${v.width}×${v.height})` : '';
-    return {
-      ...v,
-      name: v && v.name ? v.name : `Variant ${shortId}${dims}`
-    };
-  });
+  return variants.map((v) => ({
+    ...v,
+    name: formatVariantName(v)
+  }));
 };
 
 module.exports = {
@@ -68,25 +64,14 @@ module.exports = {
     perform,
 
     sample: {
-      id: '323e4567-e89b-12d3-a456-426614174002',
-      name: 'Variant 323e4567 (1080×1080)',
-      template_id: '123e4567-e89b-12d3-a456-426614174000',
-      url: 'https://example.com/variant.png',
-      width: 1080,
-      height: 1080,
-      created_at: '2024-01-01T00:00:00Z',
-      updated_at: '2024-01-01T00:00:00Z'
+      ...VARIANT_SAMPLE,
+      name: 'Variant 323e4567 (1080×1080)'
     },
 
     outputFields: [
       { key: 'id', label: 'Variant ID', type: 'string' },
       { key: 'name', label: 'Variant Name', type: 'string' },
-      { key: 'template_id', label: 'Template ID', type: 'string' },
-      { key: 'url', label: 'Variant URL', type: 'string' },
-      { key: 'width', label: 'Width (px)', type: 'integer' },
-      { key: 'height', label: 'Height (px)', type: 'integer' },
-      { key: 'created_at', label: 'Created At', type: 'datetime' },
-      { key: 'updated_at', label: 'Updated At', type: 'datetime' }
+      ...VARIANT_OUTPUT_FIELDS.filter((field) => field.key !== 'id')
     ]
   }
 };

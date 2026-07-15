@@ -12,6 +12,7 @@ This is the complete Zapier integration code for Layerre, released as an open so
 - **Create Template** - Import a design as a Layerre template
 - **Delete Template** - Remove a template from your account
 - **Create Variant** - Generate a personalized variant with custom layer overrides
+- **Create Variants (Bulk)** - Generate many variants in one request, with optional combined PDF output
 - **Delete Variant** - Remove a variant
 
 ### Triggers
@@ -101,4 +102,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Version History
 
+- **1.1.0** - Bulk variant creation, combined PDF support, page_number and multi-page schema fields
 - **1.0.0** - Initial release with template and variant management

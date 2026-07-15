@@ -1,5 +1,7 @@
 'use strict';
 
+const { VARIANT_OUTPUT_FIELDS, VARIANT_SAMPLE } = require('../lib/variant_output_fields');
+
 // Create a variant from a template with layer overrides
 const perform = async (z, bundle) => {
 
@@ -48,6 +50,11 @@ const perform = async (z, bundle) => {
   }
   if (bundle.inputData.height) {
     body.height = parseOptionalInteger(bundle.inputData.height);
+  }
+
+  const pageNumber = parseOptionalInteger(bundle.inputData.page_number);
+  if (pageNumber !== undefined) {
+    body.page_number = pageNumber;
   }
 
   // Build overrides from Line Items
@@ -376,6 +383,14 @@ module.exports = {
         helpText: 'Custom height for the variant. Leave empty to use template height.'
       },
       {
+        key: 'page_number',
+        label: 'Page Number',
+        type: 'integer',
+        required: false,
+        default: '0',
+        helpText: '0-based page index for multi-page templates. Defaults to 0 (first page).'
+      },
+      {
         key: 'export_type',
         label: 'Export Format',
         type: 'string',
@@ -388,35 +403,9 @@ module.exports = {
 
     perform: perform,
 
-    sample: {
-      id: '323e4567-e89b-12d3-a456-426614174002',
-      template_id: '123e4567-e89b-12d3-a456-426614174000',
-      url: 'https://example.com/variant.png',
-      width: 1080,
-      height: 1080,
-      overrides: [
-        {
-          layer_id: '223e4567-e89b-12d3-a456-426614174001',
-          x: 100,
-          y: 100,
-          properties: {
-            text: 'Custom Text'
-          }
-        }
-      ],
-      created_at: '2024-01-01T00:00:00Z',
-      updated_at: '2024-01-01T00:00:00Z'
-    },
+    sample: VARIANT_SAMPLE,
 
-    outputFields: [
-      { key: 'id', label: 'Variant ID', type: 'string' },
-      { key: 'template_id', label: 'Template ID', type: 'string' },
-      { key: 'url', label: 'Variant URL', type: 'string' },
-      { key: 'width', label: 'Width (px)', type: 'integer' },
-      { key: 'height', label: 'Height (px)', type: 'integer' },
-      { key: 'created_at', label: 'Created At', type: 'datetime' },
-      { key: 'updated_at', label: 'Updated At', type: 'datetime' }
-    ]
+    outputFields: VARIANT_OUTPUT_FIELDS
   }
 };
 

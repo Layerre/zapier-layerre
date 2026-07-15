@@ -1,6 +1,6 @@
 {
   "name": "layerre",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Layerre is a tool for creating multiple image variants from a single design template.",
   "main": "index.js",
   "scripts": {

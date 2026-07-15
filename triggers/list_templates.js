@@ -65,6 +65,7 @@ module.exports = {
       source_url: 'https://www.canva.com/design/DABCdef123/view',
       background_color: '#FFFFFF',
       preview_url: 'https://example.com/preview.png',
+      page_count: 3,
       created_at: '2024-01-01T00:00:00Z',
       updated_at: '2024-01-01T00:00:00Z',
       variant_count: 5
@@ -78,6 +79,7 @@ module.exports = {
       { key: 'source_url', label: 'Source URL', type: 'string' },
       { key: 'background_color', label: 'Background Color', type: 'string' },
       { key: 'preview_url', label: 'Preview URL', type: 'string' },
+      { key: 'page_count', label: 'Page Count', type: 'integer' },
       { key: 'variant_count', label: 'Variant Count', type: 'integer' },
       { key: 'created_at', label: 'Created At', type: 'datetime' },
       { key: 'updated_at', label: 'Updated At', type: 'datetime' }
