@@ -2,12 +2,19 @@
 
 // Create a new template from a design URL
 const perform = async (z, bundle) => {
+  const body = { canva_url: bundle.inputData.design_url };
+
+  if (bundle.inputData.tags) {
+    body.tags = bundle.inputData.tags
+      .split(',')
+      .map(t => t.trim().toLowerCase())
+      .filter(Boolean);
+  }
+
   const response = await z.request({
     method: 'POST',
     url: 'https://api.layerre.com/v1/template',
-    body: {
-      canva_url: bundle.inputData.design_url
-    }
+    body
   });
 
   return response.data;
@@ -29,6 +36,13 @@ module.exports = {
         type: 'string',
         required: true,
         helpText: 'The design share URL (make sure the design is shared with proper permissions).'
+      },
+      {
+        key: 'tags',
+        label: 'Tags',
+        type: 'string',
+        required: false,
+        helpText: 'Comma-separated tags to apply to this template (e.g. "campaign, summer-2026"). Lowercase letters, numbers, spaces, hyphens, and underscores only.'
       }
     ],
 
@@ -73,6 +87,7 @@ module.exports = {
       { key: 'preview_url', label: 'Preview URL', type: 'string' },
       { key: 'created_at', label: 'Created At', type: 'datetime' },
       { key: 'updated_at', label: 'Updated At', type: 'datetime' },
+      { key: 'tags', label: 'Tags', type: 'string' },
       { key: 'layers[]id', label: 'Layer ID' },
       { key: 'layers[]name', label: 'Layer Name' },
       { key: 'layers[]layer_type', label: 'Layer Type' }

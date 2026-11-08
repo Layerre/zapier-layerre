@@ -43,6 +43,7 @@ module.exports = {
       preview_url: 'https://example.com/preview.png',
       created_at: '2024-01-01T00:00:00Z',
       updated_at: '2024-01-01T00:00:00Z',
+      tags: [],
       layers: [
         {
           id: '223e4567-e89b-12d3-a456-426614174001',
@@ -71,6 +72,7 @@ module.exports = {
       { key: 'preview_url', label: 'Preview URL', type: 'string' },
       { key: 'created_at', label: 'Created At', type: 'datetime' },
       { key: 'updated_at', label: 'Updated At', type: 'datetime' },
+      { key: 'tags', label: 'Tags', type: 'string' },
       { key: 'layers[]id', label: 'Layer ID' },
       { key: 'layers[]name', label: 'Layer Name' },
       { key: 'layers[]layer_type', label: 'Layer Type' }

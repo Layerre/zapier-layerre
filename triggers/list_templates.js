@@ -8,6 +8,10 @@ const perform = async (z, bundle) => {
     include_layers: bundle.inputData && bundle.inputData.include_layers ? bundle.inputData.include_layers : false
   };
 
+  if (bundle.inputData && bundle.inputData.tag) {
+    params.tag = bundle.inputData.tag.trim().toLowerCase();
+  }
+
   const response = await z.request({
     method: 'GET',
     url: 'https://api.layerre.com/v1/templates',
@@ -52,6 +56,13 @@ module.exports = {
         required: false,
         default: 'false',
         helpText: 'Whether to include layer data in the response (slower for large templates).'
+      },
+      {
+        key: 'tag',
+        label: 'Tag Filter',
+        type: 'string',
+        required: false,
+        helpText: 'Filter to templates that have this tag (case-insensitive).'
       }
     ],
 
@@ -68,7 +79,8 @@ module.exports = {
       page_count: 3,
       created_at: '2024-01-01T00:00:00Z',
       updated_at: '2024-01-01T00:00:00Z',
-      variant_count: 5
+      variant_count: 5,
+      tags: []
     },
 
     outputFields: [
@@ -82,7 +94,8 @@ module.exports = {
       { key: 'page_count', label: 'Page Count', type: 'integer' },
       { key: 'variant_count', label: 'Variant Count', type: 'integer' },
       { key: 'created_at', label: 'Created At', type: 'datetime' },
-      { key: 'updated_at', label: 'Updated At', type: 'datetime' }
+      { key: 'updated_at', label: 'Updated At', type: 'datetime' },
+      { key: 'tags', label: 'Tags', type: 'string' }
     ]
   }
 };
